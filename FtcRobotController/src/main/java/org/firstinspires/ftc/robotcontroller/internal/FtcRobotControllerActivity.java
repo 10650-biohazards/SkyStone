@@ -155,7 +155,7 @@ public class FtcRobotControllerActivity extends Activity {
     cameraBridgeViewBase = (JavaCameraView) findViewById(R.id.show_camera_activity_java_surface_view);
     frameGrabber = new FrameGrabber(cameraBridgeViewBase, FRAME_WIDTH_REQUEST, FRAME_HEIGHT_REQUEST);
     frameGrabber.setImageProcessor(new BeaconProcessor());
-    frameGrabber.setSaveImages(true);
+    frameGrabber.setSaveImages(false);
   }
 
   //when the "Grab" button is pressed

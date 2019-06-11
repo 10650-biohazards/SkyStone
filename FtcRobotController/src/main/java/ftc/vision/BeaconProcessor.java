@@ -3,6 +3,7 @@ package ftc.vision;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
@@ -37,7 +38,7 @@ public class BeaconProcessor implements ImageProcessor<BeaconColorResult> {
         List<Scalar> hsvMin = new ArrayList<>();
         List<Scalar> hsvMax = new ArrayList<>();
 
-        hsvMin.add(new Scalar(300/2, 50, 150)); //red min
+        hsvMin.add(new Scalar(300/2, 50, 100)); //red min
         hsvMax.add(new Scalar( 60/2, 255, 255)); //red max
 
         hsvMin.add(new Scalar( 60/2, 50, 150)); //green min
@@ -61,12 +62,23 @@ public class BeaconProcessor implements ImageProcessor<BeaconColorResult> {
         double mass;
         int[] data = new int[3];
 
+        //Core's additions
+        Mat hierarchy = new Mat();
+        List<MatOfPoint> contours = new ArrayList<>();
+        //End
+
         for (int i = 0; i < 3; i++) {
 
             maskedImage = new Mat();
 
             //Applying HSV limits
             ImageUtil.hsvInRange(hsv, hsvMin.get(i), hsvMax.get(i), maskedImage);
+
+            //Start Core's additions
+            Mat contTemp = maskedImage.clone();
+
+            Imgproc.findContours(contTemp, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
+            //End Core's addition
 
             rgbaChannels.add(maskedImage.clone());
 
@@ -99,6 +111,13 @@ public class BeaconProcessor implements ImageProcessor<BeaconColorResult> {
                 end = hsv.width();
             }
         }
+
+        Mat contMap = Mat.zeros(hsv.size(), CvType.CV_8UC1);
+
+        //Core's additions
+        //Imgproc.drawContours(contMap, contours, -1, new Scalar(230, 70, 70), 3);
+        rgbaChannels.add(contMap);
+        //End
 
         //add empty alpha channels
         rgbaChannels.add(Mat.zeros(hsv.size(), CvType.CV_8UC1));
