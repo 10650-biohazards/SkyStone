@@ -1,15 +1,21 @@
-package ftc.vision;
+package ftc.vision.Beacon;
 
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.Point;
+import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ftc.vision.Beacon.BeaconColorResult;
+import ftc.vision.ImageProcessor;
+import ftc.vision.ImageProcessorResult;
+import ftc.vision.ImageUtil;
 
 /**
  * Created by vandejd1 on 8/29/16.
@@ -76,7 +82,6 @@ public class BeaconProcessor implements ImageProcessor<BeaconColorResult> {
 
             //Start Core's additions
             Mat contTemp = maskedImage.clone();
-
             Imgproc.findContours(contTemp, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
             //End Core's addition
 
@@ -112,13 +117,6 @@ public class BeaconProcessor implements ImageProcessor<BeaconColorResult> {
             }
         }
 
-        Mat contMap = Mat.zeros(hsv.size(), CvType.CV_8UC1);
-
-        //Core's additions
-        //Imgproc.drawContours(contMap, contours, -1, new Scalar(230, 70, 70), 3);
-        rgbaChannels.add(contMap);
-        //End
-
         //add empty alpha channels
         rgbaChannels.add(Mat.zeros(hsv.size(), CvType.CV_8UC1));
 
@@ -128,6 +126,14 @@ public class BeaconProcessor implements ImageProcessor<BeaconColorResult> {
         BeaconColorResult.BeaconColor left = beaconColors[maxMassIndex[0]];
         BeaconColorResult.BeaconColor right = beaconColors[maxMassIndex[1]];
 
+        //Core's additions
+        for (MatOfPoint currCont : contours) {
+            Rect rect = Imgproc.boundingRect(currCont);
+            if (rect.height * rect.width > 100) {
+                Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(255, 255, 255), 2);
+            }
+        }
+        //End
 
         //drawing pretty rectangles
         int barHeight = hsv.height() / 30;

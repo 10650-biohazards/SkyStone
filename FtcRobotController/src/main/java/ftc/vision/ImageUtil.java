@@ -16,6 +16,8 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 /**
  * This file was made by the electronVolts, FTC team 7393
@@ -291,4 +293,30 @@ public class ImageUtil {
     }
     return new Scalar(r, g, b);
   }
+
+  /*public static void replaceColor(Mat inputMat, double[] oldColor, double[] newColor, String TAG) {
+    int h = inputMat.height(), w = inputMat.width();
+
+    for (int j = 0; j < w * h; j++) {
+      double[] pixel = inputMat.get((j - (j % w)) / w, j % w);
+
+      Log.i(TAG, "Old Color Length: " + oldColor.length);
+      Log.i(TAG, "Actual Color Length: " + pixel.length);
+
+      if (equalArrays(oldColor, pixel)) {
+
+        inputMat.put((j - (j % w)) / w, j % w, newColor);
+
+        Log.i(TAG, "Target Engaged");
+      }
+    }
+  }
+
+  public static boolean equalArrays(double[] array1, double[] array2) {
+    if (array1[1] != array2[1]) {
+        return false;
+    }
+
+    return true;
+  }*/
 }

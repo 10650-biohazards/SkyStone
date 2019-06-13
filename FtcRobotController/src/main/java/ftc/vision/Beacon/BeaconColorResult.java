@@ -1,6 +1,8 @@
-package ftc.vision;
+package ftc.vision.Beacon;
 
 import org.opencv.core.Scalar;
+
+import ftc.vision.ImageUtil;
 
 public class BeaconColorResult {
 
