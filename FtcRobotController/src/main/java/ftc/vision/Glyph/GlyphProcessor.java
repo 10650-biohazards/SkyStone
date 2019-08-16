@@ -6,6 +6,7 @@ import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
+import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
@@ -32,11 +33,37 @@ public class GlyphProcessor implements ImageProcessor<GlyphResult> {
 
         //Final data variables
         GlyphResult.GlyphColor color = null;
-        int xPos = 1, yPos = 1;
+        Point loc =  null;
 
         //convert to hsv
         Mat hsv = new Mat();
         Imgproc.cvtColor(rgbaFrame, hsv, Imgproc.COLOR_RGB2HSV);
+
+        Mat returnMat;
+        returnMat = hsv.clone();
+
+        List<Point> points = new ArrayList<>();
+
+        points.add(new Point(50, 40));
+        points.add(new Point(100, 40));
+        points.add(new Point(140, 40));
+        points.add(new Point(50, 80));
+        points.add(new Point(100, 80));
+        points.add(new Point(140, 80));
+        points.add(new Point(50, 120));
+        points.add(new Point(100, 120));
+        points.add(new Point(140, 120));
+        points.add(new Point(141, 3));
+
+        for (Point currPoint : points) {
+            Imgproc.rectangle(returnMat, currPoint, new Point(currPoint.x + 3, currPoint.y + 3), new Scalar(0, 0, 0), 2);
+            int x = (int) currPoint.x, y = (int) currPoint.y;
+            Log.i(TAG, "("+ currPoint.x + ", " + currPoint.y + ")" + ": {" + returnMat.get(x, y)[0] + ", " + returnMat.get(x, y)[1] + ", " + returnMat.get(x, y)[2] + "}");
+            Imgproc.putText(returnMat, "(" + currPoint.x + ", " + currPoint.y + ")", currPoint, 0, 0.25, new Scalar(255, 255, 255), 2);
+        }
+
+
+
 
 
         //h range is 0-179
@@ -47,11 +74,14 @@ public class GlyphProcessor implements ImageProcessor<GlyphResult> {
         List<Scalar> hsvMaxs = new ArrayList<>();
         List<Scalar> hsvMins = new ArrayList<>();
 
-        hsvMaxs.add(new Scalar(20, 255, 100)); //brown maxs
-        hsvMins.add(new Scalar(13, 80, 40)); //brown mins
+        hsvMaxs.add(new Scalar(179, 70, 228)); //brown2 maxs
+        hsvMins.add(new Scalar(132, 11, 57)); //brown2 mins
 
-        hsvMaxs.add(new Scalar(179, 50, 150)); //grey maxs
-        hsvMins.add(new Scalar(0, 0, 10)); //grey mins
+        hsvMaxs.add(new Scalar(105, 117, 205)); //grey maxs
+        hsvMins.add(new Scalar(1, 23, 79)); //grey mins
+
+        hsvMaxs.add(new Scalar(14, 63, 165)); //brown1 maxs
+        hsvMins.add(new Scalar(0, 15, 115)); //brown1 mins
 
         List<Mat> rgbaChannels = new ArrayList<>();
 
@@ -62,7 +92,7 @@ public class GlyphProcessor implements ImageProcessor<GlyphResult> {
         List<MatOfPoint> contours = new ArrayList<>();
         List<Rect> rects = new ArrayList<>();
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 3; i++) {
             maskedImage = new Mat();
 
             //Applying limits
@@ -107,24 +137,46 @@ public class GlyphProcessor implements ImageProcessor<GlyphResult> {
             }
         }
 
-        Log.i(TAG, "Size: " + rects.size());
+
+        double bestScore = Integer.MIN_VALUE + 1;
+        Rect bestRect = null;
 
         for (Rect rect : rects) {
-            double porportion = rect.height / rect.width;
+            double proportion = rect.height / rect.width;
 
-            if (porportion < 1) {
-                porportion = 1 / porportion;
+            double score = Integer.MIN_VALUE;
+
+            if (proportion < 1) {
+                proportion = 1 / proportion;
             }
 
-            if (rect.area() > 100 && porportion < 2) {
-                Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(0, 255, 0), 1);
+            if (rect.area() > 100 && proportion < 2) {
+                Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(255, 255, 255), 1);
+                score = rect.area();
             } else if (rect.area() > 100){
                 Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(255, 255, 0), 1);
             } else {
-                Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(255, 0, 0), 1);
+                //Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(255, 0, 0), 1);
+            }
+
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestRect = rect;
             }
         }
 
-        return new ImageProcessorResult<>(startTime, rgbaFrame, new GlyphResult(color, xPos, yPos));
+        if (bestRect != null) {
+            Imgproc.rectangle(rgbaFrame, bestRect.tl(), bestRect.br(), new Scalar(0, 255, 0), 1);
+            if (bestRect.isBrown()) {
+                color = GlyphResult.GlyphColor.BROWN;
+            } else {
+                color = GlyphResult.GlyphColor.GRAY;
+            }
+
+            loc = bestRect.mid();
+        }
+
+        return new ImageProcessorResult<>(startTime, rgbaFrame, new GlyphResult(color, loc));
     }
 }

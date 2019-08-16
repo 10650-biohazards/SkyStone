@@ -38,9 +38,7 @@ public class beaconTest extends ExplosiveAuto {
 
         telemetry.addData("Processing time B", System.currentTimeMillis() - startTime);
 
-        while (!frameGrabber.isResultReady()) {
-
-        }
+        while (!frameGrabber.isResultReady()) {}
 
         telemetry.addData("Processing time C", System.currentTimeMillis() - startTime);
 

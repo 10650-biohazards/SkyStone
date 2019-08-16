@@ -131,6 +131,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import ftc.vision.Beacon.BeaconProcessor;
 import ftc.vision.FrameGrabber;
 import ftc.vision.Glyph.GlyphProcessor;
+import ftc.vision.judgeDay.trackProcessor;
 
 @SuppressWarnings("WeakerAccess")
 public class FtcRobotControllerActivity extends Activity {
@@ -152,7 +153,7 @@ public class FtcRobotControllerActivity extends Activity {
 
     cameraBridgeViewBase = (JavaCameraView) findViewById(R.id.show_camera_activity_java_surface_view);
     frameGrabber = new FrameGrabber(cameraBridgeViewBase, FRAME_WIDTH_REQUEST, FRAME_HEIGHT_REQUEST);
-    frameGrabber.setImageProcessor(new GlyphProcessor());
+    frameGrabber.setImageProcessor(new trackProcessor());
     frameGrabber.setSaveImages(false);
   }
 
@@ -169,6 +170,22 @@ public class FtcRobotControllerActivity extends Activity {
     Object result = frameGrabber.getResult();
     ((TextView)findViewById(R.id.resultText)).setText(result.toString());
   }
+
+  /*
+  //when the "Start" button is pressed
+  public void startButtonOnClick(View v){
+    frameGrabber.grabSingleFrame();
+    while (!frameGrabber.isResultReady()) {
+      try {
+        Thread.sleep(5); //sleep for 5 milliseconds
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+    Object result = frameGrabber.getResult();
+    ((TextView)findViewById(R.id.resultText)).setText(result.toString());
+  }
+  */
 
   void myOnWindowFocusChanged(boolean hasFocus){
     if (hasFocus) {
