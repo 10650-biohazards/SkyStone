@@ -1,0 +1,141 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:1-64:12
+	package
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:4:11-52
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:6:11-36
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:3:11-57
+	xmlns:android
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:5:11-35
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:8:3-79
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:8:20-76
+supports-screens
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:10:3-14:35
+	android:largeScreens
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:13:7-34
+	android:smallScreens
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:11:7-34
+	android:normalScreens
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:12:7-35
+	android:resizeable
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:10:23-48
+	android:anyDensity
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:14:7-32
+uses-permission#android.permission.CAMERA
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:16:3-62
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:16:20-60
+uses-feature#android.hardware.camera
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:17:3-82
+	android:required
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:17:56-80
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:17:17-55
+uses-feature#android.hardware.camera.autofocus
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:18:3-92
+	android:required
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:18:66-90
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:18:17-65
+uses-feature#android.hardware.camera.front
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:19:3-88
+	android:required
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:19:62-86
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:19:17-61
+uses-feature#android.hardware.camera.front.autofocus
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:20:3-98
+	android:required
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:20:72-96
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:20:17-71
+application
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:23:3-62:17
+	android:label
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:27:5-37
+	android:largeHeap
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:25:5-29
+	android:icon
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:26:5-41
+	android:allowBackup
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:24:5-31
+	android:theme
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:28:5-41
+activity#org.firstinspires.ftc.robotcontroller.internal.FtcRobotControllerActivity
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:31:5-55:16
+	android:screenOrientation
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:33:7-43
+	android:label
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:35:7-39
+	android:launchMode
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:36:7-38
+	android:configChanges
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:34:7-53
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:32:7-95
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:38:7-41:23
+category#android.intent.category.LAUNCHER
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:39:9-69
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:39:19-66
+action#android.intent.action.MAIN
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:40:9-61
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:40:17-58
+intent-filter#action:name:android.hardware.usb.action.USB_DEVICE_ATTACHED
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:43:7-45:23
+action#android.hardware.usb.action.USB_DEVICE_ATTACHED
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:44:9-82
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:44:17-79
+meta-data#android.hardware.usb.action.USB_DEVICE_ATTACHED
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:47:7-49:49
+	android:resource
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:49:9-46
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:48:9-71
+meta-data#org.firstinspires.main.entry
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:51:7-54:13
+	android:value
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:53:11-31
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:52:11-54
+service#com.qualcomm.ftccommon.FtcRobotControllerService
+ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:58:5-60:32
+	android:enabled
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:60:7-29
+	android:name
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml:59:7-70
+uses-sdk
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		ADDED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
+		INJECTED from /Users/ralph/Applications/GitHub/SkyStone/FtcRobotController/src/main/AndroidManifest.xml
