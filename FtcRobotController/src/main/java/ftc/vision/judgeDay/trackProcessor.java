@@ -19,6 +19,14 @@ import ftc.vision.ImageUtil;
 public class trackProcessor implements ImageProcessor<trackResult> {
     private static final String TAG = "trackProcessor";
     private static final double MIN_MASS = 6;
+
+
+    private static Point r1 = new Point(0, 0);
+    private static Point r2 = new Point(176, 144);
+    private static Rect lookingBox = new Rect(r1, r2);
+
+    private static Point lastGoodLoc;
+    public static condition cond;
     
     @Override
     public ImageProcessorResult<trackResult> process(long startTime, Mat rgbaFrame, boolean saveImages) {
@@ -134,11 +142,16 @@ public class trackProcessor implements ImageProcessor<trackResult> {
 
         for (MatOfPoint currCont : contours) {
             Rect rect = Imgproc.boundingRect(currCont);
-            Imgproc.rectangle(maskedImage, rect.tl(), rect.br(), new Scalar(255, 255, 255), 2);
 
-            if (rect.area() > maxSize) {
-                maxSize = rect.area();
-                maxRect = rect;
+            if (lookingBox.contains(rect.mid())) {
+                Imgproc.rectangle(maskedImage, rect.tl(), rect.br(), new Scalar(0, 255, 0), 2);
+
+                if (rect.area() > maxSize) {
+                    maxSize = rect.area();
+                    maxRect = rect;
+                }
+            } else {
+                Imgproc.rectangle(maskedImage, rect.tl(), rect.br(), new Scalar(255, 0, 0), 2);
             }
         }
 
@@ -155,6 +168,40 @@ public class trackProcessor implements ImageProcessor<trackResult> {
             ImageUtil.saveImage(TAG, rgbaFrame, Imgproc.COLOR_RGBA2BGR, "1_binary", startTime);
         }
 
+
+
+
+
+        if (location != null) {
+            lastGoodLoc = location;
+            lookingBox = new Rect(new Point(location.x - 20, location.y - 20), new Point(location.x + 20, location.y + 20));
+
+            cond = condition.INFRAME;
+        } else {
+            /*if (lastGoodLoc.y < 16) {
+                cond = condition.UP;
+                lookingBox = new Rect(new Point(176, 16), new Point(0, 0));
+            } else if (lastGoodLoc.x > 72) {
+                cond = condition.OFFRIGHT;
+                lookingBox = new Rect(new Point(176, 144), new Point(160, 0));
+            } else {
+                cond = condition.OFFLEFT;
+                lookingBox = new Rect(new Point(16, 144), new Point(0, 0));
+            }*/
+        }
+
+        Imgproc.rectangle(maskedImage, lookingBox.tl(), lookingBox.br(), new Scalar(0, 0, 255), 2);
+
+
+
+
         return new ImageProcessorResult<>(startTime, maskedImage, new trackResult(location));
+    }
+
+    private enum condition {
+        INFRAME,
+        OFFLEFT,
+        OFFRIGHT,
+        UP
     }
 }

@@ -70,26 +70,26 @@ public class follow extends ExplosiveTele {
         Log.i(TAG, "Begin body loop");
 
 
-        while (ultra.getDistance(DistanceUnit.INCH) < 10) {
+        /*while (ultra.getDistance(DistanceUnit.INCH) < 10) {
             setPowers(0, 0, 0, 0);
-        };
+        };*/
 
         currCond = findCondition();
 
         if (currCond == condition.ONTARGET) {
-            setPowers(0.2, 0.2, 0.2, 0.2);
+            setPowers(1, -1, 1, -1);
         }
         if (currCond == condition.OFFLEFT) {
-            setPowers(0.2, 0.2, -0.2, -0.2);
+            setPowers(1, -1, -1, 1);
         }
         if (currCond == condition.OFFRIGHT) {
-            setPowers(-0.2, -0.2, 0.2, 0.2);
+            setPowers(-1, 1, 1, -1);
         }
         if (currCond == condition.SLIGHTLEFT) {
-            setPowers(0.2, 0.2, 0, 0);
+            setPowers(1, -1, 0, 0);
         }
         if (currCond == condition.SLIGHTRIGHT) {
-            setPowers(0, 0, 0.2, 0.2);
+            setPowers(0, 0, 1, -1);
         }
 
         telemetry.addData("Status", currCond);
@@ -124,11 +124,11 @@ public class follow extends ExplosiveTele {
         } else {
             oldResult = newResult;
 
-            if (currCond == condition.OFFRIGHT) {
+            /*if (currCond == condition.OFFRIGHT) {
                 if (newResult.screenLoc.x > 130) {
                     return condition.SLIGHTRIGHT;
                 }
-            }
+            }*/
             if (newResult.screenLoc.x > 80) {
                 return condition.SLIGHTRIGHT;
             } else if (newResult.screenLoc.x < 65) {
