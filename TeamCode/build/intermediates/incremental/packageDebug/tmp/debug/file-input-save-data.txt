@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jun 11 15:58:50 EDT 2019
+#Tue Aug 27 15:15:24 EDT 2019
 20.base=/Users/ralph/Applications/GitHub/SkyStone/TeamCode/build/intermediates/assets/debug
 143.base=/Users/ralph/Applications/GitHub/SkyStone/TeamCode/build/intermediates/assets/debug
 237.path=java/js/ftclangtools.js

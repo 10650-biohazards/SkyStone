@@ -17,4 +17,16 @@ public class Node {
             this.ang += 360;
         }
     }
+
+    public myPoint coords() {
+        return new myPoint(x, y);
+    }
+
+    public void print(String tag) {
+        System.out.println();
+        System.out.println("//////Node " + tag + "//////");
+        System.out.println("Location: " + coords().toString());
+        System.out.println("Calculate Angle: " + calcAng);
+        System.out.println();
+    }
 }

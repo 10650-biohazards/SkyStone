@@ -76,6 +76,15 @@ public class follow extends ExplosiveTele {
 
         currCond = findCondition();
 
+        double mod;
+
+
+        if (newResult.screenLoc != null) {
+            mod = turnPID.status(newResult.screenLoc.x);
+        } else {
+            mod = 42;
+        }
+
         if (currCond == condition.ONTARGET) {
             setPowers(1, -1, 1, -1);
         }
@@ -92,7 +101,32 @@ public class follow extends ExplosiveTele {
             setPowers(0, 0, 1, -1);
         }
 
+
+        //FUTURE SMOOTHER VERSION
+        /*
+        if (newResult.screenLoc != null) {
+            double mod = turnPID.status(newResult.screenLoc.x);
+        }
+        if (currCond == condition.ONTARGET) {
+            setPowers(1, -1, 1, -1);
+        }
+        if (currCond == condition.OFFLEFT) {
+            setPowers(1, -1, -1, 1);
+        }
+        if (currCond == condition.OFFRIGHT) {
+            setPowers(-1, 1, 1, -1);
+        }
+        if (currCond == condition.SLIGHTLEFT) {
+            setPowers(1, -1, 0, 0);
+        }
+        if (currCond == condition.SLIGHTRIGHT) {
+            setPowers(0, 0, 1, -1);
+        }
+        */
+
+
         telemetry.addData("Status", currCond);
+        telemetry.addData("Modifier", mod);
         telemetry.update();
     }
 

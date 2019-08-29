@@ -2,12 +2,13 @@ package Utilities;
 
 public class PID {
 
-    public double P, I, D, bias, tol, tarVal, e, t = 0, initD, targetE, startTime, initE, timeElapsed, fullPowSecs, det;
-    public double integral = 0, oldE, oldTime = System.currentTimeMillis();
+    private double P, I, D, bias, tol, tarVal, t = 0, initD, targetE, startTime, initE, timeElapsed, fullPowSecs, det;
+    public double e;
+    private double integral = 0, oldE, oldTime = System.currentTimeMillis();
     private final double SECS_PER_DEG = 42;
     private boolean turn, fullPow = false;
 
-    public double timeD;
+    private double timeD;
 
     //private PID turnPID = new PID();
 
@@ -124,5 +125,9 @@ public class PID {
 
     public void adjP(double newP) {
         P = newP;
+    }
+
+    public void setTarget(double newTarg) {
+        tarVal = newTarg;
     }
 }

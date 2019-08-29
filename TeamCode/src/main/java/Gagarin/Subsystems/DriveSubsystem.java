@@ -114,10 +114,13 @@ public class DriveSubsystem extends Subsystem {
         //op.telemetry.addData("enc", bright.getCurrentPosition());
         double power;
 
+        //I like to yeet
+
         while(!PID.done() && !u.timerDone()) {
             op.telemetry.addData("pow", PID.status(-bright.getCurrentPosition()));
             op.telemetry.addData("enc", -bright.getCurrentPosition());
             op.telemetry.addData("target", target);
+            op.telemetry.addData("Delta Encoder", track.deltaEnc);
             op.telemetry.update();
 
             set_Pows(-0.3,-0.3,-0.3,-0.3);
@@ -164,21 +167,41 @@ public class DriveSubsystem extends Subsystem {
     }
 
     public void swing_turn_PID(double targetAng, boolean right){
-        PID.setup(0.07, 0, 0, 0.07, 0.5, targetAng);
+        PID breakPIDF = new PID();
+        PID breakPIDB = new PID();
+        breakPIDF.setup(0.05, 0, 0, 0, 0, 0);
+        breakPIDB.setup(0.05, 0, 0, 0, 0, 0);
+
+        PID.setup(0.04, 0, 0, 0.07, 0.5, targetAng);
         u.startTimer(5000);
         double power;
+
+        if (right) {
+            breakPIDB.setTarget(bright.getCurrentPosition());
+            breakPIDF.setTarget(fright.getCurrentPosition());
+        } else {
+            breakPIDB.setTarget(bleft.getCurrentPosition());
+            breakPIDF.setTarget(fleft.getCurrentPosition());
+        }
+
+
         while (!PID.done() && !u.timerDone()) {
+            double currAng = gyro.getYaw();
+            if (currAng < 0) {
+                currAng += 360;
+            }
+            power = PID.status(currAng);
+
+            op.telemetry.addData("Target", targetAng);
             op.telemetry.addData("pow", PID.status(gyro.getYaw()));
-            op.telemetry.addData("ang", gyro.getYaw());
+            op.telemetry.addData("ang", currAng);
             op.telemetry.addData("time", System.currentTimeMillis() - u.startTime);
             op.telemetry.update();
 
-            power = PID.status(gyro.getYaw());
-
             if (right) {
-                set_Pows(0, 0, -power, -power);
+                set_Pows(breakPIDB.status(bright.getCurrentPosition()), breakPIDF.status(fright.getCurrentPosition()), -power, -power);
             } else {
-                set_Pows(power, power, 0, 0);
+                set_Pows(-power, -power, breakPIDB.status(bleft.getCurrentPosition()), breakPIDF.status(fleft.getCurrentPosition()));
             }
 
             if (!op.opModeIsActive()) {
@@ -189,6 +212,7 @@ public class DriveSubsystem extends Subsystem {
         }
 
         set_Pows(0,0,0,0);
+
         u.waitMS(2000);
         track.refresh();
     }

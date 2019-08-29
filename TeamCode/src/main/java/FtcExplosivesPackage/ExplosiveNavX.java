@@ -50,6 +50,10 @@ public class ExplosiveNavX implements ExplosivePIDEnabledHardware {
         startPitch = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).secondAngle;
     }
 
+    public double getRaw() {
+        return -imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle;
+    }
+
     @Override
     public void close(){
         imu = null;

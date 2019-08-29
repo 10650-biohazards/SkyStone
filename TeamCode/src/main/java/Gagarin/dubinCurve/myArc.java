@@ -2,7 +2,7 @@ package Gagarin.dubinCurve;
 
 public class myArc {
 
-    public final double RADIUS = 0.75;
+    public static final double RADIUS = 0.552;
     Node startNode;
     public double length;
     boolean right;
@@ -16,11 +16,11 @@ public class myArc {
         double y = startNode.y;
 
         if (right) {
-            x += RADIUS * Math.sin(Math.toRadians(startNode.ang) + (Math.PI / 2));
-            y += RADIUS * Math.sin(Math.toRadians(startNode.ang) + (Math.PI));
+            x += RADIUS * Math.sin(Math.toRadians(startNode.calcAng) + (Math.PI / 2));
+            y += RADIUS * Math.sin(Math.toRadians(startNode.calcAng) + (Math.PI));
         } else {
-            x -= RADIUS * Math.sin(Math.toRadians(startNode.ang) + (Math.PI / 2));
-            y += RADIUS * Math.sin(Math.toRadians(startNode.ang));
+            x -= RADIUS * Math.sin(Math.toRadians(startNode.calcAng) + (Math.PI / 2));
+            y += RADIUS * Math.sin(Math.toRadians(startNode.calcAng));
         }
 
         return new myPoint(x, y);
@@ -30,12 +30,18 @@ public class myArc {
         this.length = length;
     }
 
+    public double findDistance() {
+        double circum = 2 * Math.PI * RADIUS;
+        double ratio = length / 360;
+        return circum * ratio;
+    }
+
     public myPoint fin() {
         double x, y;
 
         if (right) {
-            y = findCenter().y + (Math.sin(Math.toRadians(startNode.ang) + length) * RADIUS);
-            x = findCenter().x - (Math.cos(Math.toRadians(startNode.ang) + length) * RADIUS);
+            y = findCenter().y + (Math.sin(Math.toRadians(startNode.calcAng) + length) * RADIUS);
+            x = findCenter().x - (Math.cos(Math.toRadians(startNode.calcAng) + length) * RADIUS);
         } else {
             y = 0;
             x = 0;

@@ -128,9 +128,7 @@ import org.opencv.android.OpenCVLoader;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import ftc.vision.Beacon.BeaconProcessor;
 import ftc.vision.FrameGrabber;
-import ftc.vision.Glyph.GlyphProcessor;
 import ftc.vision.judgeDay.trackProcessor;
 
 @SuppressWarnings("WeakerAccess")

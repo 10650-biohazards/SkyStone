@@ -2,6 +2,10 @@ package Gagarin.dubinCurve;
 
 import Gagarin.Subsystems.DriveSubsystem;
 
+/**
+ * Version 1.0 of the Dubin's Curve Algorithm
+ */
+
 public class curveProcessor {
 
     private myArc firstArc;
@@ -16,9 +20,6 @@ public class curveProcessor {
     private direction first, second;
 
     DriveSubsystem drive;
-
-    public Node refinedStart;
-    public Node refinedEnd;
 
     private final int TIICKSPERTILE = 1075;
 
@@ -102,6 +103,10 @@ public class curveProcessor {
         //System.out.println(b);
         //System.out.println(m);
 
+
+        /**
+         * INITIAL CLASSIFICATION OF CURVES
+         */
         if (end.x > 0) {
             first = direction.RIGHT;
         } else {
@@ -118,6 +123,9 @@ public class curveProcessor {
             second = second == direction.LEFT ? direction.RIGHT : direction.LEFT;
         }
 
+        /**
+         * Printing and setting the curve types
+         */
         if (first == direction.RIGHT) {
             if (second == direction.RIGHT) {
                 System.out.println("RIGHT STRAIGHT RIGHT");
@@ -135,6 +143,8 @@ public class curveProcessor {
                 LSL(start, end);
             }
         }
+
+
     }
 
     public double findDist(myPoint point1, myPoint point2) {
@@ -275,13 +285,11 @@ public class curveProcessor {
         System.out.println("Start Point: (" + start.x + ", " + start.y + ")");
         System.out.println("Raw Angle: " + start.rawAng);
         System.out.println("Calc Angle: " + start.calcAng);
-        System.out.println("Angle: " + start.ang);
         System.out.println();
         System.out.println("////Ending Node////");
         System.out.println("Start Point: (" + end.x + ", " + end.y + ")");
         System.out.println("Raw Angle: " + end.rawAng);
         System.out.println("Calc Angle: " + end.calcAng);
-        System.out.println("Angle: " + end.ang);
     }
 
     private enum direction {

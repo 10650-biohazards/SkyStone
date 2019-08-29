@@ -1,5 +1,7 @@
 package ftc.vision.judgeDay;
 
+import android.util.Log;
+
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -84,6 +86,7 @@ public class trackProcessor implements ImageProcessor<trackResult> {
         Mat contTemp = maskedImage.clone();
         Imgproc.findContours(contTemp, contours, hierarchy, Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
 
+        //rgbaChannels.add(maskedImage.clone());
 
         /*
         for (int i = 0; i < 3; i++) {
@@ -144,19 +147,20 @@ public class trackProcessor implements ImageProcessor<trackResult> {
             Rect rect = Imgproc.boundingRect(currCont);
 
             if (lookingBox.contains(rect.mid())) {
-                Imgproc.rectangle(maskedImage, rect.tl(), rect.br(), new Scalar(0, 255, 0), 2);
+                //Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(0, 255, 0), 2);
 
                 if (rect.area() > maxSize) {
                     maxSize = rect.area();
                     maxRect = rect;
                 }
             } else {
-                Imgproc.rectangle(maskedImage, rect.tl(), rect.br(), new Scalar(255, 0, 0), 2);
+                //Imgproc.rectangle(rgbaFrame, rect.tl(), rect.br(), new Scalar(255, 0, 0), 2);
             }
         }
 
         if (maxRect != null) {
             location = maxRect.mid();
+            Imgproc.circle(rgbaFrame, maxRect.mid(), 5, new Scalar(255, 255, 255), 2);
         } else {
             location = null;
         }
@@ -190,12 +194,12 @@ public class trackProcessor implements ImageProcessor<trackResult> {
             }*/
         }
 
-        Imgproc.rectangle(maskedImage, lookingBox.tl(), lookingBox.br(), new Scalar(0, 0, 255), 2);
+        Imgproc.rectangle(rgbaFrame, lookingBox.tl(), lookingBox.br(), new Scalar(0, 0, 255), 5);
+
+        Log.i(TAG, lookingBox.mid().toString());
 
 
-
-
-        return new ImageProcessorResult<>(startTime, maskedImage, new trackResult(location));
+        return new ImageProcessorResult<>(startTime, rgbaFrame, new trackResult(location));
     }
 
     private enum condition {

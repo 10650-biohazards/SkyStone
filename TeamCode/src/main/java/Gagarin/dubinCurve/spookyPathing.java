@@ -2,11 +2,10 @@ package Gagarin.dubinCurve;
 
 public class spookyPathing {
 
-    static Node start = new Node(2, 3, 0);
-    static Node end = new Node(0,0, 180);
+    private static Node start = new Node(-1, -1.5, 270);
+    private static Node end = new Node(0,0, 90);
 
-
-    static curveProcessor curve = new curveProcessor(null);
+    private static curveProcessor2 curve = new curveProcessor2(null);
 
     public static void main(String args[]) {
         curve.findCurves(start, end);
