@@ -1807,7 +1807,7 @@ public final class R {
         public static int FontFamily_fontProviderFetchTimeout = 3;
         public static int FontFamily_fontProviderPackage = 4;
         public static int FontFamily_fontProviderQuery = 5;
-        public static int[] FontFamilyFont = { 0x7f040080, 0x7f040088, 0x7f040089 };
+        public static int[] FontFamilyFont = { 0x01010532, 0x0101053f, 0x01010533, 0x7f040080, 0x7f040088, 0x7f040089 };
         public static int FontFamilyFont_android_font = 0;
         public static int FontFamilyFont_android_fontStyle = 1;
         public static int FontFamilyFont_android_fontWeight = 2;
