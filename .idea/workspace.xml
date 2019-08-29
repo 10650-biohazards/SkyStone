@@ -11,7 +11,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1a98227-0765-48a1-bd4e-505630b0219f" name="Default" comment="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous.">
+    <list default="true" id="d1a98227-0765-48a1-bd4e-505630b0219f" name="Default" comment="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous. Played with gradle fire and didn't get burned.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,38 +38,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FtcRobotController/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.common.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#656#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/OpenCV/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -112,7 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FtcRobotController/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/FtcRobotController/src/main/java/ftc/vision/beaconTest.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Utility.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Gagarin/Subsystems/IntakeSubsystem.java" />
@@ -157,12 +125,13 @@
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Utilities/PID.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Gagarin/dubinCurve/myArc.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/learnClass.java" />
-        <option value="$PROJECT_DIR$/OpenCV/build.gradle" />
-        <option value="$PROJECT_DIR$/build.common.gradle" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Gagarin/dubinCurve/spookyPathing.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Gagarin/legalAuto.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Gagarin/dubinCurve/curveProcessor2.java" />
         <option value="$PROJECT_DIR$/TeamCode/src/main/java/Gagarin/Subsystems/DriveSubsystem.java" />
+        <option value="$PROJECT_DIR$/OpenCV/build.gradle" />
+        <option value="$PROJECT_DIR$/build.common.gradle" />
+        <option value="$PROJECT_DIR$/FtcRobotController/build.gradle" />
       </list>
     </option>
   </component>
@@ -200,21 +169,11 @@
     </entry>
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SkyStone" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -506,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567081299371</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous. Played with gradle fire and didn't get burned.">
+      <created>1567081648692</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1567081648692</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -520,7 +486,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Resources Explorer" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24959612" />
@@ -542,7 +507,7 @@
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Logcat" order="10" weight="0.34112793" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="11" visible="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.3287483" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32876712" />
       <window_info anchor="right" id="Assistant" weight="0.32956383" />
@@ -597,7 +562,8 @@
     <MESSAGE value="Fixed Gagarin Demo and added following code for Judgement Day." />
     <MESSAGE value="Working primitive following program." />
     <MESSAGE value="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous." />
-    <option name="LAST_COMMIT_MESSAGE" value="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous." />
+    <MESSAGE value="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous. Played with gradle fire and didn't get burned." />
+    <option name="LAST_COMMIT_MESSAGE" value="Following program completed. Version 1.1 of pathfinding algorithm complete. Basic functionality in autonomous. Played with gradle fire and didn't get burned." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/doc/apk/FtcRobotController-release.apk">
@@ -945,15 +911,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FtcRobotController/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        <state relative-caret-position="165">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#2#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.common.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="54" column="10" lean-forward="true" selection-start-line="54" selection-start-column="10" selection-end-line="54" selection-end-column="10" />
+        <state relative-caret-position="110">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding>
             <element signature="e#0#656#0" expanded="true" />
           </folding>
@@ -962,8 +931,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OpenCV/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        <state relative-caret-position="90">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
